@@ -1,0 +1,1 @@
+mandelbrot.exe -debug -nomt
