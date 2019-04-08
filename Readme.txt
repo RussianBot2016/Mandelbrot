@@ -37,4 +37,4 @@ When multiple threads are used for cpu rendering, each thread renders an interla
 
 GPU's are limited to 32-bit precision. The CPU renderer uses 64-bit precision, so you can zoom in much more.
 
-By default the application uses OpenGL do display the final image. If OpenGL acceleration is not available, only CPU processing can be used, and will be displayed using GDI software rendering.
+By default the application uses OpenGL to display the final image. If OpenGL acceleration is not available, only CPU processing can be used, and will be displayed using GDI software rendering.
