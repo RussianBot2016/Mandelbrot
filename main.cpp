@@ -1523,7 +1523,7 @@ void renderLine(void *param){
 			int d1=0;
 			int d2=0;
 			int pixRemain=2;
-			for(int i = -2;i < g_iterations;++i){	//start with -2 to better match GPU colors
+			for(int i = -2;i < g_iterations;++i){	//start with -2 to better match GPU colors and num iterations.
 				double a=zx*zx;
 				double b=zy*zy;
 				double c=zx*zy;
@@ -1552,31 +1552,31 @@ void renderLine(void *param){
 
 			}
 
-			if(d1==g_iterations){
+			if(d1>=g_iterations){
 				*dest++ = 0;
 				*dest++ = 0;
 				*dest++ = 0;
 			}
 			else{
-				double offset = (double)d1/g_iterations*(palette.width);
+				int offset = d1*(palette.width)/g_iterations;
 				if(offset<0) offset=0;
 				if(offset>palette.width-1) offset=palette.width-1;
-				*dest++ = palette.data[palette.channels * ((int)(offset))];
-				*dest++ = palette.data[palette.channels * ((int)(offset)) + 1];
-				*dest++ = palette.data[palette.channels * ((int)(offset)) + 2];
+				*dest++ = palette.data[palette.channels * ((offset))];
+				*dest++ = palette.data[palette.channels * ((offset)) + 1];
+				*dest++ = palette.data[palette.channels * ((offset)) + 2];
 			}
-			if(d2==g_iterations){
+			if(d2>=g_iterations){
 				*dest++ = 0;
 				*dest++ = 0;
 				*dest++ = 0;
 			}
 			else{
-				double offset = (double)d2/g_iterations*(palette.width);
+				int offset = d2*(palette.width)/g_iterations;
 				if(offset<0) offset=0;
 				if(offset>palette.width-1) offset=palette.width-1;
-				*dest++ = palette.data[palette.channels * ((int)(offset))];
-				*dest++ = palette.data[palette.channels * ((int)(offset)) + 1];
-				*dest++ = palette.data[palette.channels * ((int)(offset)) + 2];
+				*dest++ = palette.data[palette.channels * ((offset))];
+				*dest++ = palette.data[palette.channels * ((offset)) + 1];
+				*dest++ = palette.data[palette.channels * ((offset)) + 2];
 			}
 		}
 	}
